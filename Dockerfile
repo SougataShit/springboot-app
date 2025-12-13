@@ -6,7 +6,7 @@ WORKDIR /build/
 RUN mvn package -DskipTests
 
 # Stage 2: Create the Final Image
-FROM openjdk:17-jre-slim
+FROM openjdk:22-jdk
 WORKDIR /app
 # Copy the JAR from the build stage
 COPY --from=MAVEN_BUILD /build/target/*.jar /app/app.jar
